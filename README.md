@@ -11,14 +11,14 @@ DeepSeek Harness 的轻量 agent 预设（模式 id：`light`，显示名 Light�
 - 技能：`skill` + `skill-filesystem`（不加载内置技能目录，只读项目/用户技能）
 - 计划与上下文：`exit_plan_mode`、自动压缩、`/compact`
 - 交互：`ask_user_question`、`todo_write`、`web_search`/`web_fetch`、`present`
-- Office：`tool-office`（仅在加载 office 技能后出现）
+- Office：不含 `tool-office`（0.2.1 通过 office 技能完成 Office 操作）
 
 不包含：`subagent`/`subagent_fork`/`send_message`/`list_agents`/`interrupt_agent`、`workflow`、`schedule_*`、`create_goal`/`get_goal`/`update_goal`。
 
 ## 兼容性
 
-- 需要 DSH `>= 0.2.2-rc.2`（`engines.dsh`）。
-- DSH 0.2.1 及更早版本没有 `@deepseek-ai/dsh-tool-office` 与 `officeKit` 服务，安装会被兼容性检查拒绝。
+- 本变体（tag `v1.0.0-dsh0.2.1`）面向 DSH `>= 0.2.1-rc.3 < 0.2.2`（`engines.dsh`）。
+- 0.2.1 没有 `@deepseek-ai/dsh-tool-office` 与 `officeKit` 服务，因此本变体不含 `tool-office` 行；Office 操作仍由 office 技能完成，不提供 `office_render` / `office_convert` / `office_recalculate`。
 - 预设 id 为 `light`：如果 profile 里已有同名预设，声明加载会失败，请先移除旧 preset。
 
 ## 安装
@@ -26,7 +26,7 @@ DeepSeek Harness 的轻量 agent 预设（模式 id：`light`，显示名 Light�
 通过 DSH 的插件管理器安装（Plugins 页面，或让 agent 调用 `plugin_manager`）：
 
 ```text
-plugin_manager install_bundle target=github:zhonghes/dsh-light-preset#v1.0.0
+plugin_manager install_bundle target=github:zhonghes/dsh-light-preset#v1.0.0-dsh0.2.1
 ```
 
 安装后新建会话，在模式列表里选择「Light」。已有会话保持原模式，不会自动切换。
