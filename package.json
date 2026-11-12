@@ -1,0 +1,9 @@
+{
+  "name": "@local/dsh-light-preset",
+  "version": "1.0.0",
+  "description": "Light agent preset for DeepSeek Harness: local coding tools with skills and AGENTS.md, without delegation, schedules, goals, or the built-in skill directory.",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "dsh": ">=0.2.2-rc.2" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+}
