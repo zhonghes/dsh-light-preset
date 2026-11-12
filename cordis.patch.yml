@@ -96,8 +96,3 @@
               searchTimeoutMs: 60000
           - id: present
             name: '@deepseek-ai/dsh-tool-present'
-          # Office operation tools appear only after an Office skill loads;
-          # the Desktop host mounts those skills globally, so include the row
-          # to keep their instructions backed by real tools.
-          - id: tool-office
-            name: '@deepseek-ai/dsh-tool-office'
